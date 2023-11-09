@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bitok - Bits of Knowledge</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="icon" href="img/logo.png">
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="container" style="margin: 0 20px;">
+        <div class="row">
+            <nav class="navbar navbar-expand-lg navbar-light bg-white">
+                <a class="navbar-brand" href="/index.html" id="logo">
+                    <img src="/img/logo.png" alt="Bitok Logo" width="50" height="50" style="border-radius: 30%;">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item" style="margin-left: 25px;">
+                            <a class="nav-link" href="/index.html"><i class="fa-solid fa-house" style="margin-right: 7px;"></i>Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/courses.html"><i class="fa-solid fa-code" style="margin-right: 7px;"></i>Courses</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/about.html"><i class="fa-solid fa-users" style="margin-right: 7px;"></i>About Us</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <div class="container">
+        <h1>Purchase a Course</h1>
+        <form action="process_payment.php" method="post">
+            <label for="cardNumber">Card Number:</label>
+            <input type="text" id="cardNumber" name="cardNumber" pattern="\d{16}" placeholder="Enter your card number" required>
+
+            <label for="cvv">CVV Code:</label>
+            <input type="number" id="cvv" name="cvv" pattern="\d{3}" placeholder="Enter your CVV code" required>
+
+            <label for="expirationDate">Expiration Date:</label>
+            <input type="text" id="expirationDate" name="expirationDate" placeholder="MM/YY" pattern="^(0[1-9]|1[0-2])\/\d{2}$" required>
+
+            <label for="fullName">Full Name:</label>
+            <input type="text" id="fullName" name="fullName" pattern="^[A-Za-z ]+$" placeholder="Enter your full name" required>
+
+            <label for="courseSelect">Select a Course:</label>
+            <select id="courseSelect" name="courseSelect" required>
+                <option value="" disabled selected>Select a course</option>
+                <option value="course1">Backend</option>
+                <option value="course2">Frontend</option>
+                <option value="course3">Web Designer</option>
+                <option value="course4">SQL Data Analyst</option>
+                <option value="course5">iOS Developer</option>
+                <option value="course6">Android Developer</option>
+                <option value="course7">Machine Learning</option>
+                <option value="course8">AI Developer</option>
+                <option value="course9">Game Developer</option>
+                <option value="course10">Cybersecurity</option>
+                <option value="course11">Big Data Analyst</option>
+                <option value="course12">Manual QA Engineer</option>
+            </select>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" placeholder="Enter your message"></textarea>
+
+            
+            <button type="submit">Purchase</button>
+            
+        </form>
+    </div>
+
+    <footer class="text-white mt-5" style="background: linear-gradient(to right, #6356E5, #FFB405);">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 mt-4 mb-4">
+                    <h3>Contact Us</h3>
+                    <p>If you have any questions or need assistance, feel free to get in touch with our team.</p>
+                    <p>Email: info@bitokcourses.com</p>
+                    <p>Phone: +7 (777) 777-7777</p>
+                </div>
+                <div class="col-md-6 mt-4 mb-4">
+                    <h3>Follow Us</h3>
+                    <p>Stay connected with us on social media for the latest updates and news.</p>
+                    <a href="https://www.instagram.com/starydeadok/" class="social-icon" target="_blank"><i class="fab fa-instagram" style="font-size: 30px; color: #FFB405"></i></a>
+                    ㅤ
+                    <a href="https://github.com/DiasGuitar" class="social-icon" target="_blank"><i class="fab fa-github" style="font-size: 30px; color: #6356E5;"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>
