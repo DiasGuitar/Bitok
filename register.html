@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bitok - Bits of Knowledge</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="icon" href="img/logo.png">
+    <style>
+        .navbar-nav .nav-link:hover {
+            color: var(--main-color);
+        }
+
+        .navbar-nav .nav-link {
+            margin-right: 50px;
+        }
+
+        .navbar-nav .nav-link {
+            font-size: 18px;
+        }
+        
+        * {
+          box-sizing: border-box;
+        }
+        
+        body {
+          background-color: #f1f1f1;
+        }
+        
+        #regForm {
+          background-color: #ffffff;
+          margin: 100px auto;
+          font-family: Raleway;
+          padding: 40px;
+          width: 70%;
+          min-width: 300px;
+        }
+        
+        h1 {
+          text-align: center;  
+        }
+        
+        input {
+          padding: 10px;
+          width: 100%;
+          font-size: 17px;
+          font-family: Raleway;
+          border: 1px solid #aaaaaa;
+        }
+        
+        input.invalid {
+          background-color: #ffdddd;
+        }
+        
+        .tab {
+          display: none;
+        }
+        
+        button {
+          background-color: #6356E5;
+          color: #ffffff;
+          border: none;
+          padding: 10px 20px;
+          font-size: 17px;
+          font-family: Raleway;
+          cursor: pointer;
+        }
+        
+        button:hover {
+          opacity: 0.8;
+        }
+        
+        #prevBtn {
+          background-color: #FFB405;
+        }
+        
+        .step {
+          height: 15px;
+          width: 15px;
+          margin: 0 2px;
+          background-color: #bbbbbb;
+          border: none;  
+          border-radius: 50%;
+          display: inline-block;
+          opacity: 0.5;
+        }
+        
+        .step.active {
+          opacity: 1;
+        }
+        
+        .step.finish {
+          background-color: #6356E5;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="container" style="margin: 0 20px;">
+        <div class="row">
+            <nav class="navbar navbar-expand-lg navbar-light bg-white">
+                <a class="navbar-brand" href="/index.html" id="logo">
+                    <img src="/img/logo.png" alt="Bitok Logo" width="50" height="50" style="border-radius: 30%;">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item" style="margin-left: 25px;">
+                            <a class="nav-link" href="/index.html"><i class="fa-solid fa-house" style="margin-right: 7px;"></i>Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/courses.html"><i class="fa-solid fa-code" style="margin-right: 7px;"></i>Courses</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/about.html"><i class="fa-solid fa-users" style="margin-right: 7px;"></i>About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/register.html"><i class="fa-solid fa-user-plus" style="margin-right: 7px;"></i>Register</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    
+    <form id="regForm" action="/action_page.php">
+        <h1>Register:</h1>
+        <div class="tab">Name:
+          <p><input placeholder="First name..." oninput="this.className = ''" name="fname"></p>
+          <p><input placeholder="Last name..." oninput="this.className = ''" name="lname"></p>
+        </div>
+        <div class="tab">Contact Info:
+          <p><input placeholder="E-mail..." oninput="this.className = ''" name="email"></p>
+          <p><input placeholder="Phone..." oninput="this.className = ''" name="phone"></p>
+        </div>
+        <div class="tab">Birthday:
+          <p><input placeholder="dd" oninput="this.className = ''" name="dd"></p>
+          <p><input placeholder="mm" oninput="this.className = ''" name="nn"></p>
+          <p><input placeholder="yyyy" oninput="this.className = ''" name="yyyy"></p>
+        </div>
+        <div class="tab">Login Info:
+          <p><input placeholder="Username..." oninput="this.className = ''" name="uname"></p>
+          <p><input placeholder="Password..." oninput="this.className = ''" name="pword" type="password"></p>
+        </div>
+        <div style="overflow:auto;">
+          <div style="float:right;">
+            <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+            <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+          </div>
+        </div>
+        <div style="text-align:center;margin-top:40px;">
+          <span class="step"></span>
+          <span class="step"></span>
+          <span class="step"></span>
+          <span class="step"></span>
+        </div>
+    </form>
+
+    <footer class="text-white mt-5" style="background: linear-gradient(to right, #6356E5, #FFB405);">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 mt-4 mb-4">
+                    <h3>Contact Us</h3>
+                    <p>If you have any questions or need assistance, feel free to get in touch with our team.</p>
+                    <p>Email: info@bitokcourses.com</p>
+                    <p>Phone: +7 (777) 777-7777</p>
+                </div>
+                <div class="col-md-6 mt-4 mb-4">
+                    <h3>Follow Us</h3>
+                    <p>Stay connected with us on social media for the latest updates and news.</p>
+                    <a href="https://www.instagram.com/starydeadok/" class="social-icon" target="_blank"><i class="fab fa-instagram" style="font-size: 30px; color: #FFB405"></i></a>
+                    ㅤ
+                    <a href="https://github.com/DiasGuitar" class="social-icon" target="_blank"><i class="fab fa-github" style="font-size: 30px; color: #6356E5;"></i></a>
+                    <a href="faq.html" style="color: white; display: block; margin-top: 10px; text-decoration: underline !important; width: 40px;">FAQ</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        var currentTab = 0;
+        var tabs = document.getElementsByClassName("tab");
+        var steps = document.getElementsByClassName("step");
+        var nextBtn = document.getElementById("nextBtn");
+        var prevBtn = document.getElementById("prevBtn");
+
+        showTab(currentTab);
+
+        function showTab(n) {
+            tabs[n].style.display = "block";
+
+            if (n == 0) {
+                prevBtn.style.display = "none";
+            } else {
+                prevBtn.style.display = "inline";
+            }
+
+            if (n == tabs.length - 1) {
+                nextBtn.innerHTML = "Submit";
+            } else {
+                nextBtn.innerHTML = "Next";
+            }
+
+            fixStepIndicator(n);
+        }
+
+        function nextPrev(n) {
+            if (n === 1 && !validateForm()) return;
+
+            tabs[currentTab].style.display = "none";
+            currentTab += n;
+
+            if (currentTab >= tabs.length) {
+                window.location.href = "/index.html";
+                return;
+            }
+
+            showTab(currentTab);
+        }
+
+        function validateForm() {
+            var inputs = tabs[currentTab].getElementsByTagName("input");
+
+            for (var i = 0; i < inputs.length; i++) {
+                if (inputs[i].value == "") {
+                    inputs[i].className += " invalid";
+                    return false;
+                }
+            }
+
+            steps[currentTab].className += " finish";
+            return true;
+        }
+
+        function fixStepIndicator(n) {
+            for (var i = 0; i < steps.length; i++) {
+                steps[i].className = steps[i].className.replace(" active", "");
+            }
+
+            steps[n].className += " active";
+        }
+    </script>
+    
+</body>
+</html>
